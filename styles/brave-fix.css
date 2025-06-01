@@ -1,0 +1,93 @@
+/* 
+ * Brave Browser Fix for Input Text Visibility
+ * This file contains aggressive CSS rules to force text visibility in Brave browser
+ */
+
+/* Override any potential privacy-related CSS filters */
+* {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Force input and select visibility */
+input, select, textarea {
+  color: rgb(31, 41, 55) !important;
+  background-color: rgb(255, 255, 255) !important;
+  -webkit-text-fill-color: rgb(31, 41, 55) !important;
+  -webkit-text-stroke-color: rgb(31, 41, 55) !important;
+  -webkit-text-stroke-width: 0 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  font-family: inherit !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Brave specific targeting */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input:not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="file"]):not([type="image"]):not([type="hidden"]),
+  select {
+    color: #1f2937 !important;
+    -webkit-text-fill-color: #1f2937 !important;
+    background-color: white !important;
+    opacity: 1 !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+  }
+}
+
+/* Force option visibility in select */
+option {
+  color: #1f2937 !important;
+  background-color: white !important;
+  -webkit-text-fill-color: #1f2937 !important;
+  opacity: 1 !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Only fix result text elements specifically for Brave */
+.calculation-result span.font-medium {
+  color: #4b5563 !important;
+  -webkit-text-fill-color: #4b5563 !important;
+}
+
+.calculation-result span.font-bold {
+  color: #1f2937 !important;
+  -webkit-text-fill-color: #1f2937 !important;
+}
+
+.calculation-result span.text-green-600 {
+  color: #059669 !important;
+  -webkit-text-fill-color: #059669 !important;
+}
+
+.calculation-result h3 {
+  color: #1f2937 !important;
+  -webkit-text-fill-color: #1f2937 !important;
+}
+
+/* Placeholder text */
+::placeholder {
+  color: #6b7280 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #6b7280 !important;
+}
+
+/* Remove any potential Brave shields interference */
+.form-control,
+.form-input,
+[class*="input"],
+[class*="Input"],
+[data-testid*="input"],
+[data-cy*="input"] {
+  color: #1f2937 !important;
+  -webkit-text-fill-color: #1f2937 !important;
+  background-color: white !important;
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}

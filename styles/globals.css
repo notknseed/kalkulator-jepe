@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg-purple {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-green {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+/* Essential input fixes */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Dark mode specific fixes for Brave Browser */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+.dark-mode input,
+.dark-mode select {
+  color: rgb(243, 244, 246) !important;
+  background-color: rgb(55, 65, 81) !important;
+  -webkit-text-fill-color: rgb(243, 244, 246) !important;
+  border-color: rgb(75, 85, 99) !important;
+}
+
+[data-theme="dark"] input::placeholder,
+.dark-mode input::placeholder {
+  color: rgb(156, 163, 175) !important;
+  -webkit-text-fill-color: rgb(156, 163, 175) !important;
+}
+
+/* Force text visibility in calculation results for dark mode */
+.calculation-result.dark-mode span,
+.calculation-result.dark-mode h3,
+.calculation-result.dark-mode p {
+  color: rgb(243, 244, 246) !important;
+  -webkit-text-fill-color: rgb(243, 244, 246) !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.calculation-result.dark-mode .text-gray-300 {
+  color: rgb(209, 213, 219) !important;
+  -webkit-text-fill-color: rgb(209, 213, 219) !important;
+}
+
+.calculation-result.dark-mode .text-gray-100 {
+  color: rgb(243, 244, 246) !important;
+  -webkit-text-fill-color: rgb(243, 244, 246) !important;
+}
+
+.calculation-result.dark-mode .text-green-400 {
+  color: rgb(52, 211, 153) !important;
+  -webkit-text-fill-color: rgb(52, 211, 153) !important;
+}
