@@ -95,7 +95,7 @@ function generateMoonsheet(allocation_value, token_price) {
     };
   } else if (allocation_value >= 10000) {
     return {
-      message: "🚀🚀 ALHAMDULILLAH! JEPE BRUTAL BANG KALO BENERAN!! LETSGOOOOO!!! 🚀🚀"",
+      message: "🚀🚀 ALHAMDULILLAH! JEPE BRUTAL BANG KALO BENERAN!! LETSGOOOOO!!! 🚀🚀",
       color: "blue"
     };
   } else if (allocation_value >= 5000) {
