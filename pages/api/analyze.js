@@ -85,33 +85,43 @@ export default function handler(req, res) {
 function generateMoonsheet(allocation_value, token_price) {
   if (allocation_value >= 100000) {
     return {
-      message: "🚀 MOONSHOT ALERT! Kamu bisa jadi milioner bro! Time to quit your day job dan jadi crypto influencer!",
+      message: "😱😱😱 WHATTT!@$@!$#!??? PENSIUN AIRDROP BANG KALO BENERAN SEGINI MAH!!! 😱😱😱",
       color: "green"
     };
   } else if (allocation_value >= 50000) {
     return {
-      message: "💎 Diamond hands baby! Ini duit semester kuliah atau DP motor baru nih!",
+      message: "😱😱 WTF???!!!!! DUIT SEMUA INI??? BENERAN INI??? 😱😱",
       color: "green"
     };
   } else if (allocation_value >= 10000) {
     return {
-      message: "📈 Not bad! Lumayan buat jajan atau upgrade setup gaming kamu!",
+      message: "🚀🚀 ALHAMDULILLAH! JEPE BRUTAL BANG KALO BENERAN!! LETSGOOOOO!!! 🚀🚀"",
       color: "blue"
+    };
+  } else if (allocation_value >= 5000) {
+    return {
+      message: "🚀 WIDDIIHH JEPE BRUTAL BANG! Semoga beneran segini, yak! 🚀",
+      color: "yellow"
     };
   } else if (allocation_value >= 1000) {
     return {
-      message: "😊 Oke lah! Cukup buat makan enak beberapa kali atau beli skin game favorit!",
-      color: "yellow"
+      message: "💰 JEPE SIH KALO BENER SEGINI. SEMOGA BENERAN, BANG! 💰",
+      color: "orange"
     };
   } else if (allocation_value >= 100) {
     return {
-      message: "😐 Ya... lumayan lah buat beli kopi starbucks seminggu atau top up game mobile.",
-      color: "orange"
+      message: "🤑 Segini udah lumayan sih, bang! 🤑",
+      color: "secondary"
+    };
+  } else if (allocation_value >= 10) {
+    return {
+      message: "🪙 Yaah, lumayan lah buat beli gorengan kalo segini, bang! 🪙",
+      color: "secondary"
     };
   } else {
     return {
-      message: "😅 Hmm... mungkin cukup buat beli permen atau top up pulsa. Better than nothing!",
-      color: "red"
+      message: "😭 Yaah abu bang kalo segini, mah. 😭",
+      color: "dark"
     };
   }
 }
