@@ -56,7 +56,7 @@ export default function handler(req, res) {
     const allocation_value = user_allocation * token_price;
 
     // Generate moonsheet message
-    const moonsheet = generateMoonsheet(allocation_value, token_price);
+    const moonsheet = generateMoonsheet(allocation_value, token_price, token_name);
 
     // Generate formula
     const formula = calculation_mode === 'FDV' 
@@ -82,45 +82,45 @@ export default function handler(req, res) {
   }
 }
 
-function generateMoonsheet(allocation_value, token_price) {
+function generateMoonsheet(allocation_value, token_price, token_name) {
   if (allocation_value >= 100000) {
     return {
-      message: "😱😱😱 WHATTT!@$@!$#!??? PENSIUN AIRDROP BANG KALO BENERAN SEGINI MAH!!! 😱😱😱",
+      message: `😱😱😱 WHATTT!@$@!$#!???  PENSIUN AIRDROP BANG KALO ${token_name} BENERAN SEGINI MAH!!! 😱😱😱`,
       color: "green"
     };
   } else if (allocation_value >= 50000) {
     return {
-      message: "😱😱 WTF???!!!!! DUIT SEMUA INI??? BENERAN INI??? 😱😱",
+      message: `😱😱 WTF???!!!!! DUIT SEMUA INI??? BENERAN INI ${token_name}??? 😱😱`,
       color: "green"
     };
   } else if (allocation_value >= 10000) {
     return {
-      message: "🚀🚀 ALHAMDULILLAH! JEPE BRUTAL BANG KALO BENERAN!! LETSGOOOOO!!! 🚀🚀",
+      message: `🚀🚀 ALHAMDULILLAH! ${token_name} JEPE BRUTAL BANG KALO BENERAN!! LETSGOOOOO!!! 🚀🚀`,
       color: "blue"
     };
   } else if (allocation_value >= 5000) {
     return {
-      message: "🚀 WIDDIIHH JEPE BRUTAL BANG! Semoga beneran segini, yak! 🚀",
+      message: `🚀 WIDDIIHH ${token_name} JEPE BRUTAL BANG! Semoga beneran segini, yak! 🚀`,
       color: "yellow"
     };
   } else if (allocation_value >= 1000) {
     return {
-      message: "💰 JEPE SIH KALO BENER SEGINI. SEMOGA BENERAN, BANG! 💰",
+      message: `💰 JEPE SIH $${token_name} KALO BENER SEGINI. SEMOGA BENERAN, BANG! 💰`,
       color: "orange"
     };
   } else if (allocation_value >= 100) {
     return {
-      message: "🤑 Segini udah lumayan sih, bang! 🤑",
+      message: `🤑 segini udah lumayan sih, bang! Makasih ${token_name} 🤑`,
       color: "secondary"
     };
   } else if (allocation_value >= 10) {
     return {
-      message: "🪙 Yaah, lumayan lah buat beli gorengan kalo segini, bang! 🪙",
+      message: `🪙 Yaah, lumayan lah buat beli gorengan kalo segini, bang! ${token_name} 🪙`,
       color: "secondary"
     };
   } else {
     return {
-      message: "😭 Yaah abu bang kalo segini, mah. 😭",
+      message: `😭 Yaah ${token_name} abuuu bang kalo segini, mah. 😭`,
       color: "dark"
     };
   }
