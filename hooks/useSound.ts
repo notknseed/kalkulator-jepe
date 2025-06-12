@@ -46,11 +46,25 @@ export function useSound() {
     playBeep(800, 30)
   }, [playBeep])
 
+  const playJackpot = useCallback(() => {
+    // Slot machine jackpot sound sequence
+    setTimeout(() => playBeep(440, 80), 0)     // A4
+    setTimeout(() => playBeep(523, 80), 100)   // C5
+    setTimeout(() => playBeep(659, 80), 200)   // E5
+    setTimeout(() => playBeep(784, 80), 300)   // G5
+    setTimeout(() => playBeep(880, 80), 400)   // A5
+    setTimeout(() => playBeep(1047, 80), 500)  // C6
+    setTimeout(() => playBeep(1319, 100), 600) // E6
+    setTimeout(() => playBeep(1568, 150), 750) // G6
+    setTimeout(() => playBeep(1760, 200), 900) // A6 - finale
+  }, [playBeep])
+
   return {
     playClick,
     playSuccess,
     playError,
     playHover,
-    playBeep
+    playBeep,
+    playJackpot
   }
 }

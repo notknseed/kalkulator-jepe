@@ -66,7 +66,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [score, setScore] = useState(0)
   const [level, setLevel] = useState(1)
-  const { playClick, playSuccess, playError, playHover } = useSound()
+  const { playClick, playSuccess, playError, playHover, playJackpot } = useSound()
 
   // Game-like level system based on calculations
   useEffect(() => {
@@ -182,7 +182,14 @@ export default function Home() {
       const response = await axios.post<CalculationResult>('/api/analyze', payload)
       setResult(response.data)
       if (response.data.success) {
-        playSuccess()
+        // Play different sound based on allocation value
+        if ((response.data.allocation_value || 0) < 10) {
+          playError() // Sad sound for low values
+        } else if ((response.data.allocation_value || 0) >= 1000) {
+          playJackpot() // Jackpot sound for results above $1000
+        } else {
+          playSuccess() // Happy sound for good values
+        }
       }
     } catch (error) {
       playError()
@@ -194,7 +201,7 @@ export default function Home() {
     } finally {
       setLoading(false)
     }
-  }, [formData, playError, playSuccess])
+  }, [formData, playError, playSuccess, playJackpot])
 
   return (
     <>

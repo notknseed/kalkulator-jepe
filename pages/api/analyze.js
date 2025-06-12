@@ -115,7 +115,12 @@ function generateMoonsheet(allocation_value, token_price, token_name) {
     };
   } else if (allocation_value >= 10) {
     return {
-      message: `🪙 Yaah, lumayan lah buat beli gorengan kalo segini, bang! $${token_name} 🪙`,
+      message: `🪙 lumayaannn, disyukuri aja $${token_name}-nya bang. 🪙`,
+      color: "secondary"
+    };
+  } else if (allocation_value >= 5) {
+    return {
+      message: `🪙 Yaah, lumayan lah buat beli gorengan kalo segini, bang. $${token_name} 🪙`,
       color: "secondary"
     };
   } else {
