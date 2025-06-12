@@ -395,8 +395,8 @@ export default function Home() {
                 <div className="space-y-6">
                   {/* Moonsheet Card */}
                   <div className="pixel-result-box text-center">
-                    <div className="text-yellow-300 text-sm mb-2" style={{animation: 'pixelBlink 0.5s infinite'}}>
-                      ★★★ CALCULATION COMPLETE ★★★
+                    <div className="text-yellow-300 text-sm mb-2" style={{animation: 'pixelBlink 1.5s infinite'}}>
+                      NILAI ALOKASI KAMU ADALAH:
                     </div>
                     <h2 className="text-4xl mb-4 text-green" style={{textShadow: '2px 2px 0 #00cc00'}}>
                       {formatCurrency(result.allocation_value!)}
