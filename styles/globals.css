@@ -168,6 +168,46 @@ h1, h2, h3, h4, h5, h6 {
   animation: coinSpin 2s linear infinite;
 }
 
+/* Price highlight effect */
+@keyframes priceFlash {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes pixelShine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.price-highlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.price-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 0, 0.3) 50%,
+    transparent 100%
+  );
+  animation: pixelShine 3s infinite;
+}
+
 /* Result box styling */
 .pixel-result-box {
   background: var(--pixel-black);

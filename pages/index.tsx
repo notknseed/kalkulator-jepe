@@ -242,10 +242,10 @@ export default function Home() {
               JEPE CALCULATOR
             </h1>
             <p className="text-cyan text-2xl" style={{animation: 'pixelBlink 1s infinite'}}>
-              ▶ INSERT COIN TO CONTINUE ◀
+              ▶ MASUKKAN INFO TOKEN ◀
             </p>
             <p className="text-yellow-300 text-xl mt-2">
-              8-BIT AIRDROP FORTUNE TELLER
+              APLIKASI DUKUN AIRDROP BUAT NEBAK-NEBAK HARGA TOKEN BERDASARKAN TARGET FDV/MARKET CAP
             </p>
           </div>
 
@@ -427,9 +427,33 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="space-y-4">
-                        <div className="flex justify-between">
+                        <div className="flex justify-between items-center">
                           <span className="text-cyan uppercase">TOKEN PRICE:</span>
-                          <span className="text-white">{formatTokenPrice(result.token_price!)}</span>
+                          <div className="pixel-border bg-black p-3 price-highlight relative" style={{
+                            borderColor: 'var(--pixel-yellow)',
+                            boxShadow: '0 0 20px rgba(255, 255, 0, 0.6), inset 0 0 20px rgba(255, 255, 0, 0.2)',
+                            animation: 'pixelGlow 1s ease-in-out infinite alternate'
+                          }}>
+                            <div className="absolute -top-2 -left-2 text-xs text-yellow-300" style={{animation: 'pixelBlink 2s infinite'}}>
+                              ★
+                            </div>
+                            <div className="absolute -top-2 -right-2 text-xs text-yellow-300" style={{animation: 'pixelBlink 2s infinite', animationDelay: '0.5s'}}>
+                              ★
+                            </div>
+                            <div className="absolute -bottom-2 -left-2 text-xs text-yellow-300" style={{animation: 'pixelBlink 2s infinite', animationDelay: '1s'}}>
+                              ★
+                            </div>
+                            <div className="absolute -bottom-2 -right-2 text-xs text-yellow-300" style={{animation: 'pixelBlink 2s infinite', animationDelay: '1.5s'}}>
+                              ★
+                            </div>
+                            <span className="text-yellow-300 text-2xl font-bold relative z-10" style={{
+                              textShadow: '2px 2px 0 var(--pixel-orange), 3px 3px 0 var(--pixel-red)',
+                              letterSpacing: '2px',
+                              animation: 'priceFlash 2s ease-in-out infinite'
+                            }}>
+                              {formatTokenPrice(result.token_price!)}
+                            </span>
+                          </div>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-cyan uppercase">YOUR VALUE:</span>
