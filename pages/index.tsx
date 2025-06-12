@@ -394,7 +394,7 @@ export default function Home() {
               {result.success ? (
                 <div className="space-y-6">
                   {/* Moonsheet Card */}
-                  <div className="pixel-result-box text-center">
+                  <div className={`text-center ${(result.allocation_value || 0) < 10 ? 'pixel-result-box-gray' : 'pixel-result-box'}`}>
                     <div className="text-yellow-300 text-sm mb-2" style={{animation: 'pixelBlink 1.5s infinite'}}>
                       NILAI ALOKASI KAMU ADALAH:
                     </div>

@@ -232,6 +232,30 @@ h1, h2, h3, h4, h5, h6 {
   animation: pixelBorderMove 1s linear infinite;
 }
 
+/* Gray result box for values under $10 */
+.pixel-result-box-gray {
+  background: var(--pixel-black);
+  border: 4px solid var(--pixel-gray);
+  padding: 24px;
+  position: relative;
+}
+
+.pixel-result-box-gray::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: 
+    linear-gradient(45deg, var(--pixel-gray) 25%, transparent 25%, transparent 75%, var(--pixel-gray) 75%),
+    linear-gradient(45deg, var(--pixel-gray) 25%, transparent 25%, transparent 75%, var(--pixel-gray) 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  z-index: -1;
+  animation: pixelBorderMove 1s linear infinite;
+}
+
 @keyframes pixelBorderMove {
   0% {
     background-position: 0 0, 4px 4px;
