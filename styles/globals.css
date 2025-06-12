@@ -1,44 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  /* 8-bit color palette */
+  --pixel-black: #000000;
+  --pixel-dark-gray: #1d1d1d;
+  --pixel-gray: #606060;
+  --pixel-light-gray: #9d9d9d;
+  --pixel-white: #ffffff;
+  --pixel-red: #ff0040;
+  --pixel-orange: #ff8000;
+  --pixel-yellow: #ffff00;
+  --pixel-green: #00ff00;
+  --pixel-cyan: #00ffff;
+  --pixel-blue: #0080ff;
+  --pixel-purple: #8000ff;
+  --pixel-pink: #ff0080;
+  
+  /* Dark blue background colors */
+  --pixel-dark-blue: #0f0f3d;
+  --pixel-medium-blue: #1a1a5e;
+  --pixel-light-blue: #2d2d8f;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  background: var(--pixel-dark-blue);
+  color: var(--pixel-white);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Pixel perfect rendering */
+* {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
-.gradient-bg-purple {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* Headings with pixel font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
 }
 
-.gradient-bg-green {
-  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+/* Pixel text effects */
+.pixel-title {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--pixel-yellow);
+  text-shadow: 
+    2px 2px 0px var(--pixel-orange),
+    4px 4px 0px var(--pixel-red),
+    6px 6px 8px rgba(0,0,0,0.5);
+  animation: pixelGlow 2s ease-in-out infinite alternate;
+}
+
+/* Pixel borders */
+.pixel-border {
+  border: 4px solid var(--pixel-white);
+  box-shadow: 
+    0 4px 0 0 var(--pixel-gray),
+    0 8px 0 0 var(--pixel-dark-gray),
+    0 12px 16px rgba(0,0,0,0.3),
+    inset 0 0 0 4px var(--pixel-light-gray);
+  position: relative;
+}
+
+.pixel-border-green {
+  border: 4px solid var(--pixel-green);
+  box-shadow: 
+    0 4px 0 0 #00cc00,
+    0 8px 0 0 #009900,
+    0 12px 16px rgba(0,0,0,0.3),
+    inset 0 0 0 4px #00ff00;
+}
+
+/* Pixel buttons */
+.pixel-button {
+  font-family: 'Press Start 2P', cursive;
+  padding: 16px 32px;
+  background: var(--pixel-blue);
+  color: var(--pixel-white);
+  border: 4px solid var(--pixel-white);
+  box-shadow: 
+    4px 4px 0px var(--pixel-dark-gray),
+    8px 8px 0px var(--pixel-black);
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s;
+}
+
+.pixel-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 
+    2px 2px 0px var(--pixel-dark-gray),
+    4px 4px 0px var(--pixel-black);
+}
+
+.pixel-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Pixel input */
+.pixel-input {
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  padding: 12px 16px;
+  background: var(--pixel-black);
+  color: var(--pixel-green);
+  border: 4px solid var(--pixel-gray);
+  outline: none;
+}
+
+.pixel-input:focus {
+  border-color: var(--pixel-cyan);
+  box-shadow: 0 0 0 2px var(--pixel-cyan);
+}
+
+/* Animations */
+@keyframes pixelGlow {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes pixelBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pixelFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Coin animation */
+@keyframes coinSpin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.pixel-coin {
+  display: inline-block;
+  animation: coinSpin 2s linear infinite;
+}
+
+/* Result box styling */
+.pixel-result-box {
+  background: var(--pixel-black);
+  border: 4px solid var(--pixel-green);
+  padding: 24px;
+  position: relative;
+}
+
+.pixel-result-box::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: 
+    linear-gradient(45deg, var(--pixel-green) 25%, transparent 25%, transparent 75%, var(--pixel-green) 75%),
+    linear-gradient(45deg, var(--pixel-green) 25%, transparent 25%, transparent 75%, var(--pixel-green) 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  z-index: -1;
+  animation: pixelBorderMove 1s linear infinite;
+}
+
+@keyframes pixelBorderMove {
+  0% {
+    background-position: 0 0, 4px 4px;
+  }
+  100% {
+    background-position: 8px 8px, 12px 12px;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pixel-dark-gray);
+  border: 2px solid var(--pixel-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pixel-gray);
+  border: 2px solid var(--pixel-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pixel-light-gray);
+}
+
+/* Starfield background */
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.starfield::before,
+.starfield::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow: 
+    20px 80px white, 80px 40px white, 100px 80px white, 160px 120px white,
+    220px 20px white, 280px 80px white, 320px 60px white, 360px 40px white,
+    420px 100px white, 480px 20px white, 520px 60px white, 580px 120px white,
+    640px 40px white, 700px 80px white, 740px 100px white, 800px 20px white,
+    860px 60px white, 920px 40px white, 980px 100px white, 1040px 60px white,
+    1100px 120px white, 1160px 20px white, 1220px 80px white, 1280px 60px white,
+    40px 160px white, 100px 200px white, 160px 240px white, 220px 180px white,
+    280px 160px white, 340px 200px white, 400px 240px white, 460px 180px white,
+    520px 160px white, 580px 200px white, 640px 240px white, 700px 180px white,
+    760px 160px white, 820px 200px white, 880px 240px white, 940px 180px white,
+    1000px 160px white, 1060px 200px white, 1120px 240px white, 1180px 180px white,
+    60px 280px white, 120px 320px white, 180px 360px white, 240px 300px white,
+    300px 280px white, 360px 320px white, 420px 360px white, 480px 300px white,
+    540px 280px white, 600px 320px white, 660px 360px white, 720px 300px white,
+    780px 280px white, 840px 320px white, 900px 360px white, 960px 300px white,
+    1020px 280px white, 1080px 320px white, 1140px 360px white, 1200px 300px white;
+  animation: starMove 50s linear infinite;
+}
+
+.starfield::after {
+  width: 1px;
+  height: 1px;
+  animation-duration: 100s;
+  box-shadow: 
+    40px 40px white, 120px 80px white, 180px 120px white, 240px 60px white,
+    300px 40px white, 360px 80px white, 420px 120px white, 480px 60px white,
+    540px 40px white, 600px 80px white, 660px 120px white, 720px 60px white,
+    780px 40px white, 840px 80px white, 900px 120px white, 960px 60px white,
+    1020px 40px white, 1080px 80px white, 1140px 120px white, 1200px 60px white,
+    80px 140px white, 140px 180px white, 200px 220px white, 260px 160px white,
+    320px 140px white, 380px 180px white, 440px 220px white, 500px 160px white,
+    560px 140px white, 620px 180px white, 680px 220px white, 740px 160px white,
+    800px 140px white, 860px 180px white, 920px 220px white, 980px 160px white,
+    1040px 140px white, 1100px 180px white, 1160px 220px white, 1220px 160px white;
+}
+
+@keyframes starMove {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-400px);
+  }
 }
 
 /* Essential input fixes */
